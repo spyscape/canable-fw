@@ -22,7 +22,7 @@ int main(void)
     led_init();
     usb_init();
 
-    led_blue_blink(2);
+    led_rx_blink(2);
 
     // Storage for status and received message buffer
     CAN_RxHeaderTypeDef rx_msg_header;
@@ -33,7 +33,6 @@ int main(void)
     while(1)
     {
         cdc_process();
-        led_process();
         can_process();
 
         // If CAN message receive is pending, process the message
